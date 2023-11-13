@@ -1,17 +1,29 @@
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        // Press Alt+Enter with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Masukan jenis suhu(F untuk Fahrenheit, R untuk Reamur)");
+        char jenisSuhu = scanner.next().charAt(0);
+        System.out.println("Masukan nilai suhu dalam Celsius");
 
-        // Press Shift+F10 or click the green arrow button in the gutter to run the code.
-        for (int i = 1; i <= 5; i++) {
+        double suhuCelsius = scanner.nextDouble();
+        double hasilKonversi = 0;
+        String statusKelipatan = "";
+        if (jenisSuhu == 'f' || jenisSuhu == 'f') {
+            hasilKonversi = (suhuCelsius * 9 / 5) + 32;
+        } else if (jenisSuhu == 'R' || jenisSuhu == 'r') {
+            hasilKonversi = suhuCelsius * 4 / 5;
+        } else {
+            System.out.println("`Jenis suhu tidak valid. Program berhenti.");
+            System.exit(0);
 
-            // Press Shift+F9 to start debugging your code. We have set one breakpoint
-            // for you, but you can always add more by pressing Ctrl+F8.
-            System.out.println("i = " + i);
+            if (hasilKonversi % 2 == 0 && hasilKonversi % 5 == 0) {
+                statusKelipatan = "Kelipatan 2 dan 5";
+            }
+            System.out.println("Hasil konversi: " + hasilKonversi);
+            System.out.println("Status kelipatan: " + statusKelipatan);
+            scanner.close();
+            }
         }
     }
-}
